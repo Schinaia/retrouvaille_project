@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Publicaties- {{block.super}} {% endblock %}<</title>
+
+    {% block extra_css%}
+    <link rel="stylesheet" href="{% static 'publicaties/publicaties.css' %}">
+    {% endblock%}
+  
+</head>
+<body>
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'retrouvaille.css' %}">
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,231 @@
+.coppia{
+  background-image: url("/static/img//Coppia.jpg");
+
+  background-position-y:center;
+  background-size:cover;
+  padding-top: 0%;
+  margin-bottom: -200px;
+  margin-top: -100px;
+}
+ 
+ 
+ 
+ 
+ 
+ .flex-container {
+
+    display: flex; 
+    border-radius: 25px;
+    overflow: hidden;
+    justify-content: space-evenly; 
+    background-color: rgb(46, 139, 205);
+    padding-top: 50px;
+    padding-bottom: 25px;
+    height: 450px;
+   
+}
+ .flex-container > div{
+   
+    background-color: #f1f1f1;
+    width: 20%;
+    border:2px solid ;
+    text-size-adjust: 10px;
+    line-height: 25px;
+    font-family: sans-serif;
+    padding:0;
+    margin:10;
+    box-sizing: border-box;  
+ }
+    
+
+
+   .flex-container:hover{
+    transform: scale(1.05);
+    box-decoration-break: 0 0 40px -10px srgb rgb(119, 69, 69);
+  }    
+
+    .card-header {
+    text-align:center;
+    padding: 50px 10px; 
+    background:linear-gradient(to right,  #c57676,  #dc3e3e)
+    color(srgb red green blue);
+ 
+   }
+
+   .card-body{
+    padding: 30px 20 px;
+    text-align:left;
+    font-size: 18px;
+   }
+   
+
+  
+   @media screen and(max-width:1000px){
+    .card-body{
+      width: 40%;
+    }
+   }
+  
+   h1{
+    font-size: 40px;
+   }
+   .title {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 6vh;
+    font-weight: 600;
+    color: #4e4c4c;
+    text-shadow: 0px 1px 3px #bbbbbb;
+    line-height: 150%;
+    margin: 0 auto 0 auto;
+    margin: 1.3vh 3.5vh;
+  }
+
+    .quote-slider,
+    .quote-text {
+     height: 20vh;
+}
+@media (max-width: 550px) {
+  .quote-slider,
+  .quote-text {
+    height: 23vh;
+  }
+}
+
+@media (max-width: 450px) {
+  .quote-slider,
+  .quote-text {
+    height: 40vh;
+  }
+}
+.quote-slider {
+  margin: auto;
+  margin-top: 10vh; /*This is for demonstration purposes you can always change it*/
+  overflow: hidden;
+  position: relative;
+  max-width: 80vw; /*If you change the max-width here make sure to change it in the webkit-animation*/
+}
+
+.quote-slider li {
+ 
+  position: relative;
+  justify-content: center;
+  width: 80vw;
+  display: inline-block;
+  height: 30vh;
+}
+
+.quote-slider ul {
+  list-style: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 590vw;
+  transition: left 0.3s linear;
+  -moz-transition: left 0.3s linear;
+  -o-transition: left 0.3s linear;
+  -webkit-transition: left 0.3s linear;
+}
+
+.quote-slider-container {
+  margin: 0 auto;
+  padding: 0;
+  width: 70vw;
+  min-height: 30vh;
+}
+
+.quote {
+  text-align: center;
+  font-family: "Libre Bodoni", serif;
+  font-size: 3.5vh;
+  font-style: italic;
+  color: #4e4c4c;
+  text-shadow: 0px 1px 3px #bbbbbb;
+  line-height: 150%;
+  margin: 0 auto 0 auto;
+  margin: 1.3vh 3.5vh;
+}
+
+.source {
+  margin-top: 2.5vh;
+  padding-right: 8vw;
+  text-align: right;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 3vh;
+  color: #8d8d8d;
+}
+@keyframes carrousel {
+  0% {
+    left: 80vw;
+    opacity: 0;
+  }
+  2.5% {
+    opacity: 0.5;
+  }
+  5% {
+    left: 0vw;
+    opacity: 1;
+  }
+  20% {
+    left: 0vw;
+    opacity: 1;
+  }
+  22.5% {
+    opacity: 0.5;
+  }
+  25% {
+    left: -80vw;
+    opacity: 1;
+  }
+  45% {
+    left: -80vw;
+    opacity: 1;
+  }
+  47.5% {
+    opacity: 0.6;
+  }
+  50% {
+    left: -160vw;
+    opacity: 1;
+  }
+  70% {
+    left: -160vw;
+    opacity: 1;
+  }
+  72.5% {
+    opacity: 0.6;
+  }
+  75% {
+    left: -240vw;
+    opacity: 1;
+  }
+  95% {
+    left: -240vw;
+    opacity: 1;
+  }
+  99% {
+    left: -320vw;
+    opacity: 0.5;
+  }
+  100% {
+    left: -320vw;
+    opacity: 0;
+  }
+}
+
+.quote-slider ul {
+ animation: carrousel 20s infinite;
+}
+/* Style the footer */
+.rvfooter {
+  height: 200px;
+  background-color: #c3e9fa;
+  border-top: 6px solid #cc9318;
+  padding-top: 12px;
+  padding-bottom: 15px;
+}
+#logo{
+  padding-right: 50px;
+  padding-left: 25px;
+}

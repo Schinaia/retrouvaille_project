@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<h1>Maak een nieuwe account aan</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  {% if form.errors %}
+  {{ form }}
+  {% endif %}
+  <p>{{ form|crispy }}</p>
+  <input class="btn btn-sm btn-danger" type="submit" value="Maak een account" />
+</form>
+{% endblock %}

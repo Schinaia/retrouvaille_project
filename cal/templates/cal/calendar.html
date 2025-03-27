@@ -1,0 +1,25 @@
+
+{% extends 'cal/calbase.html' %}
+
+
+{% block title %}
+Kalender
+{% endblock %}
+
+{% block content %}
+
+
+<!-- {{ my_date|date:"l, d F Y" }} -->
+<div class="clearfix">
+
+
+
+	<a class="btn btn-info left" href="{% url 'cal:calendar' %}?{{ prev_month }}">Vorige Maand </a>
+	<a class="btn btn-info right" href="{% url 'cal:calendar' %}?{{ next_month }}">Volgende Maand </a>
+	<a class="btn btn-info right" href="{% url 'cal:event_new' %}"> Niewe Event </a>
+</div>
+
+{{ calendar }}
+
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends "base_een.html" %}
+
+{% block title %}Details {{object}} - {% endblock%}
+
+    {% block content %}
+    <h1>Details: {{ object }}</h1>
+
+        {% for article in object.articles.all%}
+        <p><strong>Titel:</strong>{{article.title}}</a></p>
+        {% endfor %}
+   
+    {% endblock%}
+

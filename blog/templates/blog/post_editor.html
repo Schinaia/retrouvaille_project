@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+   <h1>Blog Retrouvaille</h1>
+   
+   <form method="POST" novalidate>
+     
+    {% csrf_token %}
+    
+    {{ form|crispy }}
+    
+    <input class="btn btn-sm btn-success" type="submit" value="Schrijf een nieuwe post!">
+   </form>
+   
+   {% endblock %}

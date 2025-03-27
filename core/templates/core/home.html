@@ -1,0 +1,393 @@
+{% load static %} 
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://fonts.cdnfonts.com/css/beyond-2025" rel="stylesheet"> 
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/retrouv.css/'%}">
+      
+    <title>Retrouvaille_Nederland</title>
+
+  </head>
+  <body>
+    
+   
+    <style>
+      .colbar{
+       background: #210d5e;
+       padding-bottom: 0;
+       margin-bottom:-25px;
+       height: 100px;
+       font-size: larger;
+      
+      }
+    </style>
+  
+
+    <nav class="navbar navbar-expand-lg navbar-dark colbar" style="margin:0px;">
+
+         <div class="container-fluid colbar">
+        <img src="core/static/core/logo.jpg" alt="" height="75px;" width="250px;" id="logo">
+          <a class="navbar-brand" href="#" style="font-size:xx-large;">Retouvaille Nederland</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"> </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'hetprogramma' %}">Het Programma</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'cal:calendar' %}">Agenda</a>
+              </li> 
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="publicaties/" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 Publicaties
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href="/publicaties/">Artikels</a></li>
+                  <li><a class="dropdown-item" href="/">Auteurs</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Over Retrouvaille</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Blog</a>
+                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                   <li><a class="dropdown-item" href="/blog-post-editor/">Blog</a></li>
+                   <li><div class="mt-1">
+                     {% if not request.user.is_authenticated %}
+                     <a class="dropdown-item" href="/accounts/login/login/">Login</a>
+                     <a class="dropdown-item" href="{% url 'register-account' %}">Niewe account</a>
+                     {% else %}
+                      <form method="POST" action="{% url 'logout' %}">
+                      {% csrf_token %}
+                        <!-- <input class="dropdown-item" type="submit" value="LOGOUT"> -->
+                      </form>
+                    {% endif %}
+                  </div>
+                </li>
+                   <li><a class="dropdown-item" href="/accounts/logout/logout">Logout</a>
+                    </li>
+  
+                 </ul>
+               <li class="nav-item">
+                <a class="nav-link" href="{% url 'contatto' %}" tabindex="-1" aria-disabled="true">Contact</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <a href="/contact-us/" class="btn btn-outline-info btn-lg" type="submit">AANMELDEN</a>
+            </form>
+          </div>
+        </div>
+      </div>
+     </nav> 
+  
+      <section class="coppia">
+      <style>
+        .coppia{
+          background-image: url('core/static/core/Coppia.jpg');
+        
+          background-position-y:center;
+          background-size:cover;
+          padding-top: 0%;
+          margin-bottom: -200px;
+          margin-top: -100px;
+        }       
+    
+      #sfida{
+        padding: 17px;
+        padding-right:70%;
+      } 
+      .mybox{
+        color: rgb(249, 249, 254);
+        height: 500px;
+        padding-bottom: 200px;
+        margin-bottom: 50px;
+    
+       }
+       .col-6{
+        padding-top: 100px;
+        padding-inline: 70px;
+        padding-block: 75px;
+        margin-left: 500px;
+       
+    
+        font-size: larger;
+      }
+      .row{
+      
+        padding-inline-start: 20%;
+        padding-right: 50px;
+        padding-bottom: 10px;
+
+      } 
+      #inizio{
+       
+        padding-top:100px;
+        font-size:x-large;
+      }
+    </style>
+
+      <div class="container cmt-12 text-center my-3" id ="inizio">
+        <!-- <img src="static/core/Coppia.jpg" alt=""> -->
+        <div class="row"></div>
+        <div class="col-lg-10 offset-lg-1"></div>
+            <h1>Retrouvaille...een reddingslijn voor relaties in nood.</h1>
+        <p class="text-center" style="height: 15px;">Wij geloven dat elk huwelijk dat in crisis is de kans verdient om te overleven. Retrouvaille biedt die kans,
+          Met ons programma bieden wij de mogelijkheid aan koppels om hun liefde voor elkaar te hervinden.</p>
+
+        <div class=" container cmt-3 text-center" id="sfida">
+          <a href="{% url 'deuitdaging' %}" class="btn btn-lg btn-info text-white" style="margin:40px;">DE UITDAGING BEGINT HIER <br>11-13 april 2025</a>
+          </div> 
+
+     </div>
+
+
+      <div class="row justify-content-around text-start my-5">
+        <div class="col-6">
+        <ul id= "h3s" id="p1" class="mybox" class="cut">
+            <li>Ben je bezorgd over je huwelijk? Voel je je alleen in je huwelijksrelatie?</li>
+            <li>Voel je afstand tot je partner? Ben je teleurgesteld of verveeld in je huwelijk?</li>
+            <li>Is er geen communicatie meer? </li>
+            <li>Beleef je koelte? Zijn er conflicten? Voel je je gefrustreerd, gekwetst, of kwaad op je partner?</li>
+            <li>Heb je geen idee, hoe je verandering kan brengen in je situatie?</li>
+
+          </ul>
+       </div>
+      </div>
+    </div>
+    </section>
+
+      <section>
+        <div class="card-group my-3">
+            <div class="card text-center">
+               <style> #more {display: none;}</style>
+              <img src="https://www.retrouvaille.it/wp-content/uploads/2021/02/figlio-soffre-litigi-tra-genitori-s.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+
+                <h5 class="card-title">Wat is Retrouvaille eigenlijk?</h5>
+
+
+
+                <p class="text-start my-5" >Retrouvaille is een ervaringsgerichte dienst die wordt aangeboden aan gehuwde of samenwonende paren die: <br>
+
+                  - ernstige relatieproblemen hebben <br>
+
+                  - die op het punt staan uit elkaar te gaan of al gescheiden zijn <span id="dots">...</span><span id="more"> <br>- die van plan zijn hun liefdesrelatie weer op te bouwen door te werken aan het redden van hun huwelijk in crisis.
+
+                    <br>Retrouvaille is een Frans woord dat "terugvinden" betekent. Het is bedoeld als een teken van hoop voor elk paar in crisis, een lichtpunt in een samenleving waar de media echtscheiding voorstellen als een geschikte voor huwelijksproblemen.
+                </span>
+                  </span></p>
+                  <button onclick="myFunction()" id="myBtn">Verder lezen</button>
+
+                  <script>
+                    function myFunction() {
+                      var dots = document.getElementById("dots");
+                      var moreText = document.getElementById("more");
+                      var btnText = document.getElementById("myBtn");
+
+                      if (dots.style.display === "none") {
+                        dots.style.display = "inline";
+                        btnText.innerHTML = "Lees meer";
+                        moreText.style.display = "none";
+                      } 
+                      else {
+                        dots.style.display = "none";
+                        btnText.innerHTML = "Lees minder  ";
+                        moreText.style.display = "inline";
+                      }
+                    }
+                  </script>
+
+
+
+                <p class="text-start my-5"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+            <div class="card text-center">
+              <img src="https://img1.wsimg.com/isteam/ip/f97436fe-c9ba-497c-845e-2167ace773e0/ba972eea-3436-4411-92dd-0fe97fec6555.PNG/:/rs=w:600,h:300,cg:true,m/cr=w:600,h:300
+                "class="card-img" alt="..." height="325 px">
+              <div class="card-body">
+                <h5 class="card-title">Retrouvaille over de hele wereld</h5>
+                <p class="text-start my-5">De Retrouvaille International-website is de grootste bron voor het lokaliseren van programma's overal ter wereld. 
+                  
+                  <span id="dotstwee">...</span><span id="moretwee">Sommige landen zijn actief, maar hebben nog geen eigen website, maar u kunt data, 
+                  locaties en telefoonnummers vinden met behulp van de uitgebreide lijst met landen en staten op hun homepage, www.retrouvaille.org</span></p>
+                <button onclick="myFunctiontwee()" id="myBtntwee">Verder lezen</button>
+                <script>
+                  function myFunctiontwee() {
+                    var dotstwee = document.getElementById("dotstwee");
+                    var moretweeText = document.getElementById("moretwee");
+                    var btntweeText = document.getElementById("myBtntwee");
+
+                    if (dotstwee.style.display === "none") {
+                        dotstwee.style.display = "inline";
+                        btntweeText.innerHTML = "Lees meer";
+                        moretweeText.style.display = "none";
+                    } 
+                    else {
+                        dotstwee.style.display = "none";
+                        btntweeText.innerHTML = "Lees minder";
+                        moretweeText.style.display = "inline";
+                    }
+                  } 
+                  </script>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+            <div class="card text-center">
+              <img src="https://www.retrouvaille.it/wp-content/uploads/2021/02/riconciliazione-dopo-separazione.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Onze doelen</h5>
+                <p class="text-start my-5"> Het doel is om hulp te bieden aan stellen die leven in de teleurstelling en pijn van huwelijksproblemen
+
+                  <span id="dotsdrie">...</span><span id="moredrie"> weekend biedt een veilige omgeving en moedigt paren aan om op een respectvolle manier te leren communiceren in het huwelijk.
+                    De fase met de sessies na het Weekend van Retrouvaille is zeker zo cruciaal als het Weekend op zich.
+                    De mate van teleurstelling, achteruitgang en wanhoop in gekwetste huwelijken kan niet in een weekend afnemen. Herstel kost tijd. De sessies na het weekend bieden ondersteuning wanneer paren concepten bespreken zoals het belang van communicatie in het huwelijk, 
+                intimiteit en vele andere onderwerpen.
+                De huidige acceptatie van echtscheiding suggereert dat veel vrienden, families en kerkgemeenschappen huwelijken slechts in beperkte mate ondersteunen. Retrouvaille is een programma dat uitsluitend
+                is gericht op het bieden van de nodige ondersteuning om huwelijken te helpen redden</span></p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <button onclick="myFunctiondrie()" id="myBtndrie">Verder lezen</button>
+                <script>
+                  function myFunctiondrie() {
+                    var dotsdrie = document.getElementById("dotsdrie");
+                    var moredrieText = document.getElementById("moredrie");
+                    var btndrieText = document.getElementById("myBtndrie");
+
+                    if (dotsdrie.style.display === "none") {
+                      dotsdrie.style.display = "inline";
+                      btndrieText.innerHTML = "Lees meer ";
+                      moredrieText.style.display = "none";
+                    } else {
+                      dotsdrie.style.display = "none";
+                      btndrieText.innerHTML = "Lees minder";
+                      moredrieText.style.display = "inline";
+                    }
+                  }
+                </script>
+          
+              </div>
+              
+            </div>
+
+    </div>
+
+    <div>
+
+     <style>
+      .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 40%;
+}
+</style>
+</section>
+
+ <section>
+
+ <style>
+  #bel {
+    position: relative;
+    font-family: Arial;
+  }
+  
+  .text-block {
+    position: absolute;
+    height: 100px;
+    bottom: 30px;
+    right: 900px;
+    background-color: rgb(247, 241, 241);
+    color: rgb(148, 38, 38);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    padding-bottom: 10%;
+   
+    border-radius: 10px;
+   
+  }
+  </style> 
+  <div class="container" id="bel">
+    <img src="core/static/core/Dispair.jpg" alt="" style="width:100%;" height="500px">
+    <div class="text-block">
+      <h4>Praat nu met iemand:</h4>
+      <p> 06 4043 0383 </p>
+    </div>
+  </div>
+      
+<hr>
+
+    
+<section>
+    <h1 style="text-align: center; padding:5%; ">  </h1>
+    <div class="header">
+      <div class="title">Wat zeggen koppels over Retrouvaille</div>
+    </div>
+    <div class="quote-slider">
+      <ul class="quote-text">
+        <li>
+          <div class="quote-slider-container">
+            <div class="quote">
+              "We hebben meer dan zes maanden apart geleefd, maar door dit programma leren we geleidelijk onze relatie opnieuw op te bouwen."
+            </div>
+           
+          </div>
+        </li>
+        <li>
+          <div class="quote-slider-container">
+            <div class="quote">
+              "Onze liefde was begraven onder bitterheid en woede. We ontdekten dat we opnieuw konden beginnen en hier verder konden gaan."
+            </div>
+          
+          </div>
+        </li>
+        <li>
+          <div class="quote-slider-container">
+            <div class="quote">
+              "Ik was bijna niet gekomen, maar ik ben zo blij dat ik het deed. Het voelt echt als een nieuwe start.”
+            </div>
+           
+          </div>
+        </li>
+        <li>
+          <div class="quote-slider-container">
+            <div class="quote">"We waren allebei ontrouw geweest, maar Retrouvaille gaf ons het vertrouwen om elkaar weer te vinden."</div>
+           
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+</section>
+<div class="rvfooter">
+  <div class="container">
+      <ul class="list-group list-group-horizontal justify-content-center">
+          <li class="list-group-item"><a href="/">Home</a> </li>
+          <li class="list-group-item"><a href="/faq">FAQ</a> </li>
+          <li class="list-group-item"><a href="/locations">Dates &amp; Locations</a></li>
+      </ul>
+  </div>
+</div>
+<script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+
+</body>
+</html>  
+
+

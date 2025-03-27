@@ -1,0 +1,25 @@
+
+{% extends "base_een.html" %}
+
+
+{% block title %} Lijst Publicaties - {{ block.super }}{% endblock%}
+{% block content %}
+
+ <h2>Lijst Publicaties</h2>
+
+     {% for article in object_list %}
+        <p>Titel: <strong>{{ article.title }}</strong></p>
+         {% if article.pdf_file %}
+            <a href="{{ article.pdf_file.url }}">Download PDF</a>
+         {% endif %}
+
+        <p><strong>Auteur: </strong><a href="{{ article.author.get_absolute_url }}">{{article.author}}</a></p>
+        <p><strong>Inhoud: </strong>{{article.content|truncatewords:50 }}</p>
+
+
+        <!-- <p><strong><a href="documents/">Link</a></strong></p> -->
+       <hr>
+     {% endfor %}
+    
+
+{% endblock %}
