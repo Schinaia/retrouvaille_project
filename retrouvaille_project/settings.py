@@ -130,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = ('en')
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -144,8 +144,8 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'core/static/'
-STATIICFILES_DIRS =[BASE_DIR /'static'],
-[BASE_DIR /'core/static/core']
+STATICFILES_DIRS =[BASE_DIR /'static'],
+[BASE_DIR /'core/static/core'],
 STATIC_ROOT =[BASE_DIR /"static"]  # new
 
 # MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media-serve') # definizione con modulo OS
